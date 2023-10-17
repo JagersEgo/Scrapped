@@ -237,6 +237,8 @@ states/Walk/position = Vector2(487, 100)
 transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_1nn2v"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ihkiq"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_8rdep")]
 
 [node name="Player Character" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 25
 script = ExtResource("1_rqwg0")
 dash_speed = 256.0
 dash_duration = 0.15
@@ -268,6 +270,9 @@ texture = ExtResource("3_n04yn")
 centered = false
 offset = Vector2(-13, -16)
 script = ExtResource("4_gl17r")
+
+[node name="muzzle" type="Marker2D" parent="gun"]
+position = Vector2(7, -1)
 
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 0.2

@@ -48,7 +48,7 @@ func _physics_process(_delta):
 	# normalize input_direction
 	input_direction = input_direction.normalized()
 	
-	# move and slide function
+	# move and slide functio
 	move_and_slide()
 	
 	pick_new_state()
