@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgln3gks2aq5f"]
+
+[ext_resource type="Texture2D" uid="uid://dixofonps7hgc" path="res://Sprites/Prototype/shitgun.png" id="1_itlgc"]
+[ext_resource type="Script" path="res://Sprites/shitgun/shitgun.gd" id="2_q4n1l"]
+
+[node name="shitgun" type="Sprite2D"]
+texture = ExtResource("1_itlgc")
+script = ExtResource("2_q4n1l")

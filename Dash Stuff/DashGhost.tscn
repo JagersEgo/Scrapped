@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5vmm8tpqb5w"]
+
+[ext_resource type="Texture2D" uid="uid://dd1ax72jm8kp1" path="res://Sprites/Prototype/Prototype_Worksheet.png" id="1_dgk3d"]
+[ext_resource type="Script" path="res://DashGhost.gd" id="2_bubkg"]
+
+[node name="DashGhost" type="Sprite2D"]
+texture = ExtResource("1_dgk3d")
+hframes = 4
+vframes = 14
+frame = 4
+script = ExtResource("2_bubkg")
