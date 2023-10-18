@@ -13,8 +13,7 @@ func _process(_delta):
 	var mouse_pos = get_global_mouse_position()
 	look_at(mouse_pos)
 	
-	if Input.is_action_just_pressed("shoot") and can_fire:
-		print("bang")
+	if Input.is_action_just_pressed("shoot") and can_fire and $"..".isRunning == false:
 		var bullet_instance = bullet.instantiate()
 		bullet_instance.rotation = rotation
 		bullet_instance.global_position = $muzzle.global_position

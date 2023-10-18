@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var move_speed : float = 64
+@export var run_speed : float = 96
 @export var dash_speed : float = 320
 @export var dash_duration : float = 0.2
 @export var dash_cooldown : float = 0.5
@@ -13,6 +14,8 @@ extends CharacterBody2D
 @onready var dash_cd_timer = $DashCDTimer
 @onready var ghost_timer = $GhostTimer
 
+var speed : float = 64
+var isRunning = false
 var isDashing = false
 var ghost_scene = preload("res://Dash Stuff/DashGhost.tscn")
 @onready var sprite = $"Character Sprite"
@@ -37,11 +40,25 @@ func _physics_process(_delta):
 		velocity = input_direction * dash_speed
 		
 		instance_ghost()
+		
+	
+	if Input.is_action_just_pressed("run") and isRunning == false:
+		isRunning = true
+	
+	elif Input.is_action_just_pressed("run") and isRunning == true:
+		isRunning = false
+	
 	
 	if dash_timer.is_stopped():
 		isDashing = false
 		ghost_timer.stop()
-		velocity = input_direction * move_speed
+		
+	if !isDashing:
+		if !isRunning:
+			speed = move_speed
+		if isRunning:
+			speed = run_speed
+		velocity = input_direction * speed
 	
 	
 	update_animation_parameters(input_direction)
