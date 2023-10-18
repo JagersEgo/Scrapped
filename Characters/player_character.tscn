@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://cl1ii3qf1nkw5"]
+[gd_scene load_steps=31 format=3 uid="uid://cl1ii3qf1nkw5"]
 
 [ext_resource type="Texture2D" uid="uid://dd1ax72jm8kp1" path="res://Sprites/Prototype/Prototype_Worksheet.png" id="1_gmdau"]
 [ext_resource type="Script" path="res://Characters/player_character.gd" id="1_rqwg0"]
 [ext_resource type="Texture2D" uid="uid://dixofonps7hgc" path="res://Sprites/Prototype/shitgun.png" id="3_n04yn"]
 [ext_resource type="Script" path="res://Characters/gun.gd" id="4_gl17r"]
+[ext_resource type="Script" path="res://Characters/Camera2D.gd" id="5_doscu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oh67i"]
 size = Vector2(12, 14)
@@ -283,5 +284,10 @@ one_shot = true
 
 [node name="GhostTimer" type="Timer" parent="."]
 wait_time = 0.03
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+script = ExtResource("5_doscu")
 
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]

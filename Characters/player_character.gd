@@ -26,7 +26,7 @@ func _physics_process(_delta):
 		Input.get_action_strength("right") - Input.get_action_strength("left"), 
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
-	
+	# normalize input_direction
 	input_direction = input_direction.normalized()
 	
 	if Input.is_action_just_pressed("dash") and dash_cd_timer.is_stopped() and input_direction != Vector2(0,0):
@@ -45,8 +45,6 @@ func _physics_process(_delta):
 	
 	
 	update_animation_parameters(input_direction)
-	# normalize input_direction
-	input_direction = input_direction.normalized()
 	
 	# move and slide functio
 	move_and_slide()
@@ -79,12 +77,10 @@ func pick_new_state():
 		
 #Change direction of sprite based on mouse pos
 func _process(_delta):
-	if get_global_mouse_position().x > $"Character Sprite".global_position.x:
-		$"Character Sprite".flip_h = false
+	if get_global_mouse_position().x > sprite.global_position.x:
+		sprite.flip_h = false
 	else:
-		$"Character Sprite".flip_h = true
-
-
+		sprite.flip_h = true
 
 func _on_ghost_timer_timeout() -> void:
 	instance_ghost()
