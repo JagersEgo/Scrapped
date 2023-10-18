@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://48nc0d2qri14"]
+[gd_scene load_steps=3 format=3 uid="uid://48nc0d2qri14"]
 
+[ext_resource type="Texture2D" uid="uid://bmf6go0s6t74f" path="res://icon.svg" id="1_0fvs6"]
 [ext_resource type="PackedScene" uid="uid://cl1ii3qf1nkw5" path="res://Characters/player_character.tscn" id="1_kpn0h"]
 
 [node name="Game Level" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(196, 218)
+scale = Vector2(4, 4)
+texture = ExtResource("1_0fvs6")
 
 [node name="Player Character" parent="." instance=ExtResource("1_kpn0h")]
 position = Vector2(135, 90)
