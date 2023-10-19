@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b27ubmdtfrajk"]
+
+[ext_resource type="Script" path="res://Scrap Counter/scrap.gd" id="1_csiuu"]
+[ext_resource type="Texture2D" uid="uid://0uvwcgprjgli" path="res://Sprites/pile_of_junk_large.d0437ef0f573c0122a0c81cdca93d094ab024015.png" id="1_dmo7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7b32g"]
+
+[node name="Scrap" type="Area2D"]
+script = ExtResource("1_csiuu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_dmo7i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7b32g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
