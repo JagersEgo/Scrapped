@@ -3,5 +3,3 @@ extends Label
 
 func _process(_delta):
 	self.text = str(self.scrap_count)
-
-

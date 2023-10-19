@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://48nc0d2qri14"]
+[gd_scene load_steps=7 format=3 uid="uid://48nc0d2qri14"]
 
 [ext_resource type="Texture2D" uid="uid://bmf6go0s6t74f" path="res://icon.svg" id="1_0fvs6"]
 [ext_resource type="PackedScene" uid="uid://cl1ii3qf1nkw5" path="res://Characters/player_character.tscn" id="1_kpn0h"]
 [ext_resource type="PackedScene" uid="uid://ba2sj54gqujkw" path="res://UI.tscn" id="2_rs6nh"]
+[ext_resource type="Texture2D" uid="uid://0uvwcgprjgli" path="res://Sprites/pile_of_junk_large.d0437ef0f573c0122a0c81cdca93d094ab024015.png" id="4_ewv8i"]
+[ext_resource type="PackedScene" uid="uid://dfxpocgif0jdy" path="res://Scrap Counter/scrap.tscn" id="5_ve8tk"]
+[ext_resource type="Script" path="res://Game Level/Label.gd" id="5_wms7d"]
 
 [node name="Game Level" type="Node2D"]
 
@@ -11,7 +14,35 @@ position = Vector2(196, 218)
 scale = Vector2(4, 4)
 texture = ExtResource("1_0fvs6")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("2_rs6nh")]
-
 [node name="Player Character" parent="." instance=ExtResource("1_kpn0h")]
 position = Vector2(135, 90)
+
+[node name="UI" parent="." instance=ExtResource("2_rs6nh")]
+
+[node name="Scrap Counter" type="Node2D" parent="UI"]
+
+[node name="ColorRect" type="ColorRect" parent="UI/Scrap Counter"]
+offset_right = 93.0
+offset_bottom = 40.0
+color = Color(0.321569, 0.321569, 0.321569, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Scrap Counter"]
+position = Vector2(16, 20)
+scale = Vector2(0.0693359, 0.0693359)
+texture = ExtResource("4_ewv8i")
+
+[node name="Label" type="Label" parent="UI/Scrap Counter"]
+offset_left = 44.0
+offset_top = 6.0
+offset_right = 84.0
+offset_bottom = 32.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_wms7d")
+
+[node name="scrap" parent="." instance=ExtResource("5_ve8tk")]
+position = Vector2(187, 87)
+collision_mask = 2
+
+[connection signal="body_entered" from="scrap" to="Player Character" method="_on_scrap_body_entered"]

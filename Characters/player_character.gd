@@ -14,6 +14,7 @@ extends CharacterBody2D
 @onready var dash_cd_timer = $DashCDTimer
 @onready var ghost_timer = $GhostTimer
 
+var scrap_count : float = 0
 var speed : float = 64
 var isRunning = false
 var isDashing = false
@@ -101,3 +102,8 @@ func _process(_delta):
 
 func _on_ghost_timer_timeout() -> void:
 	instance_ghost()
+
+
+func _on_scrap_body_entered(_body):
+	print("bong")
+	$"../UI/Scrap Counter/Label".scrap_count += 1

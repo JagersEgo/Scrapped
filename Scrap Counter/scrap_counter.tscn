@@ -10,12 +10,6 @@ offset_right = 48.0
 offset_bottom = 19.0
 color = Color(0.356863, 0.356863, 0.356863, 1)
 
-[node name="Button" type="Button" parent="."]
-offset_left = 14.0
-offset_top = 2.0
-offset_right = 47.0
-offset_bottom = 16.0
-
 [node name="Scrap Counter" type="Label" parent="."]
 offset_left = 11.0
 offset_top = -4.0
@@ -30,5 +24,3 @@ script = ExtResource("1_0nf56")
 position = Vector2(6, 10)
 scale = Vector2(0.0263672, 0.0263672)
 texture = ExtResource("2_ydpwj")
-
-[connection signal="pressed" from="Button" to="Scrap Counter" method="_on_button_pressed"]
