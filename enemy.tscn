@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1vk2re43vyra"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_014sn"]
+[ext_resource type="Script" path="res://State Machine.gd" id="2_vv6yc"]
+[ext_resource type="Script" path="res://enemyIdle.gd" id="3_dtk8a"]
+[ext_resource type="Texture2D" uid="uid://dq48awsgo21fk" path="res://Enemy/1200px-ChatGPT_logo.png" id="3_xrnwl"]
+[ext_resource type="Script" path="res://EnemyFollow.gd" id="5_j4vq3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8s6q8"]
+
+[node name="Enemy Body" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 13
+script = ExtResource("1_014sn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+shape = SubResource("CircleShape2D_8s6q8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1.14441e-05, -1.14441e-05)
+scale = Vector2(0.013, 0.013)
+texture = ExtResource("3_xrnwl")
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_vv6yc")
+initial_state = NodePath("EnemyFollow")
+
+[node name="EnemyIdle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_dtk8a")
+enemy = NodePath("../..")
+
+[node name="EnemyFollow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_j4vq3")
+enemy = NodePath("../..")

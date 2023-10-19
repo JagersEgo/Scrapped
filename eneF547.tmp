@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1vk2re43vyra"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_014sn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ufjqw"]
+
+[sub_resource type="Gradient" id="Gradient_tnpc0"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1wknv"]
+gradient = SubResource("Gradient_tnpc0")
+
+[node name="Enemy Body" type="CharacterBody2D"]
+script = ExtResource("1_014sn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ufjqw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(2, -2)
+scale = Vector2(0.136719, 33.75)
+texture = SubResource("GradientTexture1D_1wknv")
