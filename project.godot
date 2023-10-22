@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/scale=4.0
 
@@ -72,6 +73,7 @@ shoot2={
 2d_physics/layer_3="player-bullets"
 2d_physics/layer_4="enemy"
 2d_physics/layer_5="enemy-bullets"
+2d_physics/layer_6="Items"
 
 [rendering]
 
